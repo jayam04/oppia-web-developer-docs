@@ -40,7 +40,7 @@ Additionally, GitHub also provides an advanced search syntax that allows you to 
 
 3. Say hi and introduce yourself on [GitHub Discussions](https://github.com/oppia/oppia/discussions/16715)!
 
-4. Install Oppia following the [[installation instructions|Installing-Oppia]]. If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]]. If you want help setting up a code editor, also check out our [[guide to common IDEs|Tips-for-common-IDEs]]. If the above resources don't help and you're still stuck, please check [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-installation) to see if any existing threads address the issue. If not, feel free to start a new thread explaining what you've tried and what you're seeing, so that we can try and help you!
+4. Install Oppia following the [[installation instructions|Installing-Oppia]]. If you run into any issues, please check out the [[troubleshooting instructions|Troubleshooting]]. If you want help setting up a code editor, also check out our [[guide to common IDEs|Tips-for-common-IDEs]]. If the above resources don't help and you're still stuck, please check [GitHub Discussions](https://github.com/oppia/oppia/discussions/categories/q-a-installation) to see if any existing threads address the issue. If not, feel free to start a new thread explaining what you've tried and what you're seeing, so that we can try and help you! (You will probably get a faster response if you include a [[debugging doc|Debugging-Docs]] explaining what local investigations you have tried so far.)
 
 5. Update your GitHub settings:
 
@@ -103,7 +103,8 @@ When you've found a good first issue you'd like to tackle, please investigate it
 
 Once you have a good understanding of the issue, you can ask for it to be assigned to you by leaving a comment as follows:
 
-- Show a video of the fix working correctly on your local machine. (For user-facing changes, your video should show a URL that starts with localhost:8181.)
+- Show a video of the fix working correctly on your local machine. (For user-facing changes, your video should show a URL that starts with localhost:8181.) When creating a video, make sure to follow exactly the same steps as the issue author did in their video/description, so that your video can be compared to theirs to confirm that it fixes the problem.
+- (If fixing a bug) Explain clearly what the **root cause** of the bug is, pointing to specific lines of code in the Oppia codebase if needed.
 - Explain clearly what you did to tackle the issue (at a minimum, point to which file(s) you modified and describe the changes you made). You can include code snippets if you like.
 - @-mention the leads of the corresponding project (you can find their details [here](https://github.com/orgs/oppia/projects)), letting them know you'd like to work on it and when you can submit a PR by.
 
