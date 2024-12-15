@@ -47,7 +47,9 @@
     * [[Debug frontend code|Debug-frontend-code]]
     * [[Debugging Stories|Debugging-Stories]]
     * [[Testing email functionality|Testing-email-functionality]]
-    * 👣 [[Tutorial - Learn to figure out the reproduction steps for a server error|Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error]]
+    * Tutorials:
+      * 👣 [[Tutorial - Learn to figure out the reproduction steps for a server error|Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error]]
+      * 👣 [[Tutorial - Learn to debug an issue using a debugging doc|Tutorial-Learn-to-Debug-an-Issue-Using-a-Debugging-Doc]]
   * Testing
       * [[Backend tests|Backend-tests]]
       * [[Frontend tests|Frontend-tests]]
