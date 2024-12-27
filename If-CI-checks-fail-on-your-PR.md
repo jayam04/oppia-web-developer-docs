@@ -21,20 +21,18 @@ To diagnose and fix a failing check on your PR, follow the instructions below:
 
 2. If the issue isn't a merge conflict, then there are two possibilities: your code could be wrong, or the test/check on Oppia's develop branch could be incorrect. You will need to determine which of these cases it is. Note that the test/check on Oppia's develop branch could be incorrect for two reasons:
 
-  * Sometimes, the tests in develop may be "flaky", which means they pass sometimes and fail sometimes, even though the code has not changed. The dev workflow team is trying to reduce cases like this, though they may sometimes still happen.
+    * Sometimes, the tests in develop may be "flaky", which means they pass sometimes and fail sometimes, even though the code has not changed. The dev workflow team is trying to reduce cases like this, though they may sometimes still happen.
 
-  * If an incorrect PR was recently merged to develop, this could cause the tests to fail on develop. If you see this happening, please follow the [Revert and Regression Policy|Revert-and-Regression-Policy] so that we can revert the problematic changes as soon as possible, since the develop branch should always be passing checks.
+    * If an incorrect PR was recently merged to develop, this could cause the tests to fail on develop. If you see this happening, please follow the [[Revert and Regression Policy|Revert-and-Regression-Policy]] so that we can revert the problematic changes as soon as possible, since the develop branch should always be passing checks.
 
 
 ## Figuring out whether the failure is due to your PR or an existing issue
 
 Here are some tips for how to determine whether the failing CI check is due to your code or a problem in Oppia's develop branch:
 
-* Always start by **looking at the failure logs**. Click on the "Details" link next to each of the failing tests to inspect their logs.
+* Always start by **looking at the failure logs**. Click on the "Details" link next to each of the failing tests to inspect their logs. Then, select the job under 'Jobs' to see the logs for that particular job.
 
   ![Screenshot of GitHub Actions CI logs page](images/githubActionsLogs.png)
-
-  Then, select the job under 'Jobs' to see the logs for that particular job.
 
 * Next, consider whether your changes could have plausibly caused the failure. For example, if you just updated the README, then there's no way that you could have broken an E2E test. Similarly, PRs that only modify frontend files are unlikely to cause errors in the "install third-party dependencies" step. However, note that changes in one part of the code can have unintended effects in apparently unrelated code. For example, if you add an E2E test that creates an exploration with the same name as an exploration created by another E2E test, you could break that other E2E test, even if it's testing completely unrelated code.
   * If your changes could have plausibly caused the failure, see [What to do if the failure is due to your PR](#what-to-do-if-the-failure-is-due-to-your-pr), below.
@@ -46,9 +44,9 @@ Here are some tips for how to determine whether the failing CI check is due to y
 
 To debug and fix the failure, always start from the errors in the CI logs. They contain useful information that can help you with debugging. You can also do the following to get more information about what is causing the error:
 
-* Find the command that the CI workflow uses to run the tests, and run that command on your local machine. Note that all our CI checks merge from the upstream `develop` branch before running, so you may need to merge from `develop` locally to reproduce the failure.
+  * Find the command that the CI workflow uses to run the tests, and run that command on your local machine. Note that all our CI checks merge from the upstream `develop` branch before running, so you might also need to merge from `develop` locally to reproduce the failure on your machine.
 
-* [Run the local development server](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%3B-Python-3%29#running-oppia-on-a-development-server) and check that the website behaves normally, with no errors in the developer console. Often, when doing this, you will get errors in the backend server logs or the developer console which can help you figure out what is going wrong.
+  * [Run the local development server](https://github.com/oppia/oppia/wiki/Installing-Oppia-%28Mac-OS%3B-Python-3%29#running-oppia-on-a-development-server) and check that the website behaves normally, with no errors in the developer console. Often, when doing this, you will get errors in the backend server logs or the developer console which can help you figure out what is going wrong.
 
 > [!TIP]
 > When running the test locally, make sure that you are using the same command that is used in CI, with the same flags. Otherwise, you might encounter different results locally and on CI. You can double-check the command by looking at the corresponding test script in `.github/actions/workflows`, or by examining the corresponding test log on GitHub Actions.
@@ -71,7 +69,7 @@ If you are stuck, compile all your findings in a [[debugging doc|Debugging-Docs]
 
    * If the error message you see matches a known issue on the [issue tracker](https://github.com/oppia/oppia/issues), leave a comment on that known issue that points to the failing check on your PR, to document that it is still happening. This will help the dev workflow team recognize that this issue is serious and increase its priority.
 
-   * If the error message you see doesn't match a known issue, but you have confirmed that it's not due to your changes, please file a [CI Flake report](https://github.com/oppia/oppia/issues/new?assignees=&labels=triage+needed%2Cbug&projects=&template=3_ci_error_template.yml&title=%5BFlake%5D%3A+) that documents the error. Additionally, if you can [trace which PR caused the error|How-to-find-the-commit-which-introduced-a-bug], please link to it as well so that the Oppia maintainers can [revert it](https://github.com/oppia/oppia/wiki/Revert-and-Regression-Policy) if needed.
+   * If the error message you see doesn't match a known issue, but you have confirmed that it's not due to your changes, please file a [CI Flake report](https://github.com/oppia/oppia/issues/new?assignees=&labels=triage+needed%2Cbug&projects=&template=3_ci_error_template.yml&title=%5BFlake%5D%3A+) that documents the error. Additionally, if you can [[trace which PR caused the error|How-to-find-the-commit-which-introduced-a-bug]], please link to it as well so that the Oppia maintainers can [revert it](https://github.com/oppia/oppia/wiki/Revert-and-Regression-Policy) if needed.
 
 2. **Restart the failing test on your PR.**
 
