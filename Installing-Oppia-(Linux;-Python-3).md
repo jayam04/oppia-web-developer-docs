@@ -1,49 +1,51 @@
 ## Table of Contents
 
-* [Install prerequisites](#install-prerequisites)
-* [Clone Oppia](#clone-oppia)
-* [Setup a virtual environment](#setup-a-virtual-environment)
-* [Running Oppia on a development server](#running-oppia-on-a-development-server)
-* [Tips and tricks](#tips-and-tricks)
-* [Notes on installation on Arch Linux systems](#notes-on-installation-on-arch-linux-systems)
-  * [Changes to installation prerequisites](#changes-to-installation-prerequisites)
-  * [Changes to the virtual environment setup](#changes-to-the-virtual-environment-setup)
+1. [Install prerequisites](#1-install-prerequisites)
+1. [Clone Oppia](#2-clone-oppia)
+1. [Setup a virtual environment](#3-setup-a-virtual-environment)
+1. [Running Oppia on a development server](#4-running-oppia-on-a-development-server)
+1. [Tips and tricks](#5-tips-and-tricks)
+1. [Notes on installation on Arch Linux systems](#6-notes-on-installation-on-arch-linux-systems)
+   * [Changes to installation prerequisites](#changes-to-installation-prerequisites)
+   * [Changes to the virtual environment setup](#changes-to-the-virtual-environment-setup)
 
-**Note:** If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
+> [!TIP]
+> If you just want to create and share explorations, you may be able to use the hosted server at https://www.oppia.org (in which case you don't need to install anything).
 
-*These installation instructions were last tested on 8 January 2024. For more information on issues that may occasionally arise with the installation process, see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page or ask in the [GitHub Discussions](https://github.com/oppia/oppia/discussions).*
+> [!NOTE]
+> These installation instructions were last tested on 8 January 2024. For more information on issues that may occasionally arise with the installation process, see the [Troubleshooting](https://github.com/oppia/oppia/wiki/Troubleshooting) page or ask in the [GitHub Discussions](https://github.com/oppia/oppia/discussions).
 
-## Install prerequisites
+## 1. Install prerequisites
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia (see step 1 in the next section). However, there are some things that you will need to do beforehand:
 
 1. Update your package list to the latest version by running:
 
-```
-sudo apt-get update
-```
+   ```bash
+   sudo apt-get update
+   ```
 
 2. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation), pyyaml (which is used to parse YAML files) and libbz2-dev (used by Apache Beam):
 
-```
-sudo apt-get install python3-pip python3-setuptools curl openjdk-8-jre git python3-dev python3-yaml python3-matplotlib unzip libbz2-dev
-```
+   ```bash
+   sudo apt-get install python3-pip python3-setuptools curl openjdk-8-jre git python3-dev python3-yaml python3-matplotlib unzip libbz2-dev
+   ```
 
-Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisites.sh` script to install these. From the oppia directory:
+   Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisites.sh` script to install these. From the oppia directory:
 
-```
-bash scripts/install_prerequisites.sh
-```
+   ```bash
+   bash scripts/install_prerequisites.sh
+   ```
 
 3. Make sure that you have **Python 2** installed, it is needed for the dev server to run. On Ubuntu 20 you can install it using `sudo apt install python2`. On Ubuntu 18 you can install it using `sudo apt install python-minimal`. If both of these commands do not work, try using `sudo apt install python2-minimal`.
 
 4. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
 
-## Clone Oppia
+## 2. Clone Oppia
 
 1. Create a new, empty folder that will hold your Oppia work. Here, we call the folder `opensource`.
 
-2. Navigate to the folder (`cd opensource/`). Next, we'll [fork and clone](https://help.github.com/articles/fork-a-repo/) the Oppia repository.
+2. Navigate to the folder (`cd opensource/`). Next, we'll [fork and clone](https://help.github.com/articles/fork-a-repo/) the Oppia repository, as described in below steps.
 
 3. Navigate to https://github.com/oppia/oppia and click on the `fork` button. It is placed on the right corner opposite the repository name `oppia/oppia`.
 
@@ -89,22 +91,27 @@ bash scripts/install_prerequisites.sh
 
    For making any changes to original repository, we first sync our cloned repository with original repository. We merge develop with `upstream/develop` to do this. Now we make a new branch, do the changes on the branch, push the branch to forked repository, and make a PR from Github interface. We use a different branch to make changes so that we can work on multiple issues while still having a clean version in develop branch.
 
-## Setup a virtual environment
+## 3. Setup a virtual environment
 
 For your virtual environment, we recommend you use [pyenv](https://github.com/pyenv/pyenv). Here are some instructions for doing so, but you can use another virtual environment tool if you wish:
-   > [NOTE!]
-   > The commands below can be executed in any directory, as they are not path-specific.
-1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.** The build dependencies for Ubuntu/Debian are
+
+> [NOTE!]
+> The commands below can be executed in any directory, as they are not path-specific.
+
+1. **Make sure you install the Python build dependencies for your operating system. These are specified [here](https://github.com/pyenv/pyenv/wiki#suggested-build-environment). If you don't do this it might lead to problems further on.** To install build dependencies in Ubuntu/Debian run
 
 
    ```
-   sudo apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+   sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \
+   libbz2-dev libreadline-dev libsqlite3-dev curl git \
+   libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
    ```
 
-2. Install pyenv:
+2. Install pyenv using [installation steps](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation).
+   pyenv lets you easily switch between multiple versions of Python.
+   ```bash
+   $ curl -fsSL https://pyenv.run | bash
 
-   ```console
-   $ curl pyenv.run | bash
      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                     Dload  Upload   Total   Spent    Left  Speed
    100   270  100   270    0     0    630      0 --:--:-- --:--:-- --:--:--   632
@@ -114,7 +121,8 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ...
    ```
 
-   If you see the warning at the end, add the following lines to your ``>> ~/.bashrc`` (if you are using bash) or ``>> ~/.zshrc`` (if you are using zsh).
+   > [!WARNING]
+   > If you see the warning at the end, add the following lines to your ``>> ~/.bashrc`` (if you are using bash) or ``>> ~/.zshrc`` (if you are using zsh).
 
    ```bash
    export PYENV_ROOT="$HOME/.pyenv"
@@ -129,27 +137,30 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
 3. Reload your shell or open a new terminal window to load your updated `~/.bashrc` or `~/.zshrc`.
-```bash
-exec "$SHELL"
-```
-4. Now you can install Python 3.8.15 and the associated pip like this:
+   ```bash
+   exec "$SHELL"
+   ```
+
+4. Now you can install Python 3.9.20 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.8.15
-   installing python-3.8.15...
+   $ pyenv install 3.9.20
+   installing python-3.9.20...
    patching file misc/news.d/next/build/2021-10-11-16-27-38.bpo-45405.isfdw5.rst
    patching file configure
    patching file configure.ac
-   installed python-3.8.15 to /home/user/.pyenv/versions/3.8.15
+   installed python-3.9.20 to /home/user/.pyenv/versions/3.9.20
    ```
 
-5. Install direnv
+5. Install direnv.
+   direnv helps to set and unset virtual environment based on current dierctory
 
    ```sh
    sudo apt install direnv
    ```
 
-6. Setup direnv into your shell.  
+6. Setup direnv into your shell.
+
    If you are using bash:
 
    ```bash
@@ -180,16 +191,16 @@ exec "$SHELL"
    > [!WARNING]
    > Be careful with using graphical editors like Notepad in Windows. These can add carriage returns (`\r`) that confuse our Linux-based development tools. Instead, we recommend using editors designed for programming or command-line text editors.
 
-8. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository
+8. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository, which is `opensource/` in this case.
    with this content:
 
-    ```console
-    use python 3.8.15
+    ```bash
+    use python 3.9.20
     ```
 
     Then run this command in the same folder:
 
-    ```sh
+    ```bash
     direnv allow
     ```
 
@@ -197,7 +208,7 @@ exec "$SHELL"
 
 9. Install the Python dependencies:
 
-    ```console
+    ```bash
     $ pip install pyyaml setuptools
     Requirement already satisfied: setuptools in /home/user/.pyenv/versions/2.7.18/envs/oppia-tmp/lib/python2.7/site-packages (44.1.1)
     Collecting pyyaml
@@ -211,15 +222,15 @@ exec "$SHELL"
 
 10. If you want to run backend tests and check coverage, please install these 2 pip libraries:
 
-    ```console
+    ```bash
     pip install coverage configparser
     ```
 
-## Running Oppia on a development server
+## 4. Running Oppia on a development server
 
 1. In a terminal, navigate to `oppia/` and run:
 
-   ```console
+   ```bash
    python -m scripts.start
    ```
 
@@ -240,7 +251,7 @@ exec "$SHELL"
    > [!NOTE]
    > Oppia uses the npm tool to install some packages. This tool accesses both ~/tmp and ~/.npm, and has been known to occasionally encounter permissions issues with those directories. You may need to either delete these directories and all their contents (if they do not contain anything else that needs to be preserved), or change their permissions so that they are owned by you, which you can do by running
 
-   ```console
+   ```bash
    sudo chown -R {{YOUR_USERNAME}} ~/tmp
    sudo chown -R {{YOUR_USERNAME}} ~/.npm
    ```
@@ -320,7 +331,7 @@ exec "$SHELL"
 
    </details>
 
-## Tips and tricks
+## 5. Tips and tricks
 
   * To preserve the contents of the local datastore between consecutive runs, use the `--save_datastore` argument when starting up the dev server:
 
@@ -330,7 +341,7 @@ exec "$SHELL"
 
 * The default Oppia installation comes with a set of [demo explorations](https://github.com/oppia/oppia/tree/master/data/explorations). On startup, none of these are loaded. To load them, log in to your server as an admin, then click your username in the top-right corner and choose 'Admin Page'. This will open the admin page, from which you can load the demo explorations.
 
-## Notes on installation on Arch Linux systems
+## 6. Notes on installation on Arch Linux systems
 
 _The following notes are thanks to @ashish-patwal. They come with no guarantees, and may change some settings on your local machine, so please make sure you fully understand their ramifications before following them!_
 
@@ -404,21 +415,21 @@ On Arch Linux, you should follow these instructions to set up your virtual envir
 
 3. Reload your shell or open a new terminal window to load your updated `.bashrc`, `.zshrc`, or `config.fish`
 
-4. Now you can install Python 3.8.15 and the associated pip like this:
+4. Now you can install Python 3.9.20 and the associated pip like this:
 
    ```console
-   $ pyenv install 3.8.15
-   installing python-3.8.15...
+   $ pyenv install 3.9.20
+   installing python-3.9.20...
    patching file misc/news.d/next/build/2021-10-11-16-27-38.bpo-45405.isfdw5.rst
    patching file configure
    patching file configure.ac
-   installed python-3.8.15 to /home/user/.pyenv/versions/3.8.1
+   installed python-3.9.20 to /home/user/.pyenv/versions/3.8.1
    ```
 
 5. Create a virtual environment for oppia:
 
    ```console
-   $ pyenv virtualenv 3.8.15 oppia
+   $ pyenv virtualenv 3.9.20 oppia
    ...
    $ pyenv versions
    ...

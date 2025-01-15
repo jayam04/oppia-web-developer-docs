@@ -1,5 +1,11 @@
 # Table of Contents
 
+> [!NOTE]
+> Most of scripts in Oppia are designed to support UNIX based systems, this includes Linix and MacOS but not Windows. So, for Windows we have 3 major methods to support this.
+> 1. Using Windows Subsystem for Linux 2 (WSL2) (recommended): It's provided by Microsoft and uses lightweight virtual machine with an actual Linux kernel.
+> 2. Using Virtual Machine solutions such as Virtualbox, VMWare: It's easier to setup and you will have true Linux environment. However, it adds some overhead and reduces performance.
+> 3. Using Docker (caution: in BETA): It's a modern way which packages dependencies and utilizes OS-level virtualization rather than hardware-level. Currently, being in BETA, it still requires WSL, so it's no better than first method.
+
 * [Installing Oppia in Windows and WSL2](#installing-oppia-in-windows-and-wsl2)
   * [Step 1: Check if your Windows is up to date](#step-1-check-if-your-windows-is-up-to-date)
   * [Step 2: Install WSL2](#step-2-install-wsl2)
