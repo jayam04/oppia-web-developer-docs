@@ -19,27 +19,23 @@
 
 Oppia relies on a number of programs and third-party libraries. Many of these libraries are downloaded automatically for you when you first run the `start.py` script provided with Oppia (see step 1 in the next section). However, there are some things that you will need to do beforehand:
 
-1. Update your package list to the latest version by running:
+1. Make sure you have curl (used to download third-party libraries), git (which allows you to store the source in version control), unzip (used for unpacking zip files) and openjdk-11-jre (needed for GCP to work):
 
    ```bash
    sudo apt-get update
+   sudo apt-get install curl git unzip openjdk-11-jre
    ```
-
-2. Make sure you have curl (used to download third-party libraries), setuptools (needed for installing coverage, which checks test coverage for the Python code), git (which allows you to store the source in version control), python-dev (which is used for the numpy installation), python-pip (which is also used for the numpy installation), pyyaml (which is used to parse YAML files) and libbz2-dev (used by Apache Beam):
-
-   ```bash
-   sudo apt-get install python3-pip python3-setuptools curl openjdk-8-jre git python3-dev python3-yaml python3-matplotlib unzip libbz2-dev
-   ```
-
-   Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisites.sh` script to install these. From the oppia directory:
+   
+   Alternatively, if you are on Debian/Ubuntu, you can use the `install_prerequisites.sh` script to install these. From the oppia directory, run:
 
    ```bash
    bash scripts/install_prerequisites.sh
    ```
 
-3. Make sure that you have **Python 2** installed, it is needed for the dev server to run. On Ubuntu 20 you can install it using `sudo apt install python2`. On Ubuntu 18 you can install it using `sudo apt install python-minimal`. If both of these commands do not work, try using `sudo apt install python2-minimal`.
+2. Verify that Java version 11+ is installed. You can use the command `java -version` to do this. (If you need to change the default binary for the `java` command on your machine, use `sudo update-alternatives --config java`.)
 
-4. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
+3. Install Chrome from [Google's website](https://www.google.com/chrome). You'll need this to run tests.
+
 
 ## 2. Clone Oppia
 
@@ -82,6 +78,14 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
    ```
 
    The `git remote -v` command at the end shows all your current remotes.
+
+   For developers who are using SSH to push to their git repository, please change the SSH config at `~/.ssh/config` to ensure that the git pre-push hook doesn't time out at 5 minutes. In order to do this, add the following lines to `~/.ssh/config` ([Reference](https://stackoverflow.com/a/65818657)):
+
+   ```console
+   Host*
+      ServerAliveInterval 60
+      ServerAliveCountMax 30
+   ```
 
    Now you can pull in changes from `oppia/oppia` by running `git pull upstream {{branch}}` and push your changes to your fork by running `git push origin {{branch}}`.
 
@@ -140,15 +144,12 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
    ```bash
    exec "$SHELL"
    ```
-
+   
 4. Now you can install Python 3.9.20 and the associated pip like this:
 
    ```console
    $ pyenv install 3.9.20
    installing python-3.9.20...
-   patching file misc/news.d/next/build/2021-10-11-16-27-38.bpo-45405.isfdw5.rst
-   patching file configure
-   patching file configure.ac
    installed python-3.9.20 to /home/user/.pyenv/versions/3.9.20
    ```
 
@@ -194,7 +195,7 @@ For your virtual environment, we recommend you use [pyenv](https://github.com/py
 8. Create a virtual environment for oppia by adding file named `.envrc` into the parent folder of the oppia repository, which is `opensource/` in this case.
    with this content:
 
-    ```bash
+    ```console
     use python 3.9.20
     ```
 

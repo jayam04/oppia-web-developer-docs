@@ -452,7 +452,7 @@ def test_finds_hello_world_assignment(self):
         doc='Custom test')
     temp_file = tempfile.NamedTemporaryFile()
     filename = temp_file.name
-    with python_utils.open_file(filename, 'w') as tmp:
+    with open(filename, 'w') as tmp:
         tmp.write('s = "Hello, world!"')
     node.file = filename
     node.path = filename
@@ -472,7 +472,7 @@ def test_finds_hello_world_func_call(self):
         doc='Custom test')
     temp_file = tempfile.NamedTemporaryFile()
     filename = temp_file.name
-    with python_utils.open_file(filename, 'w') as tmp:
+    with open(filename, 'w') as tmp:
         tmp.write('print("Hello, world!")')
     node.file = filename
     node.path = filename
@@ -499,7 +499,7 @@ def test_finds_hello_world_assignment(self):
     temp_file = tempfile.NamedTemporaryFile()
     filename = temp_file.name
 
-    with python_utils.open_file(filename, 'w') as tmp:
+    with open(filename, 'w') as tmp:
         tmp.write("""
         s = "Hello, world!"
         print("Hello, world!")
@@ -529,12 +529,12 @@ Once you've added test cases, you can run them like this:
 
 Python:
 ```console
-python -m scripts.run_backend_tests --test_target=scripts.linters.pylint_extensions_test --verbose
+python -m scripts.run_backend_tests --test_targets=scripts.linters.pylint_extensions_test --verbose
 ```
 
 Docker:
 ```console
-make run_tests.backend PYTHON_ARGS="--test_target=scripts.linters.pylint_extensions_test --verbose"
+make run_tests.backend PYTHON_ARGS="--test_targets=scripts.linters.pylint_extensions_test --verbose"
 ```
 
 The `--verbose` option will help with debugging by printing out more logging information.

@@ -31,6 +31,19 @@ GSoC is an excellent opportunity for new contributors to get paid to work on an 
 -   [GSoC FAQ](https://developers.google.com/open-source/gsoc/faq)
 
 
+## Completed Projects
+
+The following projects (with linked proposals, contributor journals and final reports) were successfully completed as part of GSoC 2024:
+
+* [Mohd Afzal Khan](pdfs/GSoC2024MohdAfzal.pdf): Infrastructure and navigation for multiple classrooms. Mentor: Nikita Vorobyev. [Journal link](https://medium.com/@afzl210). [Final report](https://medium.com/@afzl210/gsoc24-final-report-multiple-classrooms-8bcf3d4d10bf).
+* [Akash Paloju](pdfs/GSoC2024AkashPaloju.pdf): Static Page Redesigns. Mentor: Harshvardhan Singh. [Journal link](https://add-compelling-pages.blogspot.com/). [Final report](https://gsoc-journey-akash-paloju.blogspot.com/2024/08/my-gsoc24-journey-with-oppia-foundation.html).
+* [Vir Kothari](pdfs/GSoC2024VirKothari.pdf): Improvements to the exploration editor page. Mentor: Kevin Thomas. [Journal link](https://medium.com/@virkothari8). [Final report](https://medium.com/@virkothari8/gsoc-2024-final-project-report-oppia-improvements-to-the-exploration-editor-page-fb93af950d3b).
+* [Akhilesh Kumar Yadav](pdfs/GSoC2024AkhileshKumar.pdf): Acceptance Tests. Mentor: Christie Ho. [Journal link](https://medium.com/@akacademic05). [Final report](https://medium.com/@akacademic05/my-google-summer-of-code24-with-oppia-foundation-2c12e796f258).
+* [Justin Nguyen](pdfs/GSoC2024JustinNguyen.pdf): Make CI and pre-push hooks more efficient.  Mentor: Vojtěch Jelínek. [Journal link](https://medium.com/@jn-nguyen). [Final report](https://docs.google.com/document/d/1Ev_qaJ2yybLZBRpXAtu7WMQIjguuNamLWGKB57v3hUs/edit).
+* [Ramadevi](pdfs/GSoC2024RamaDevi.pdf): Code coverage support and enforcement. Mentor: Ben Henning. [Journal link](https://medium.com/@rd4dev). [Final report](https://medium.com/@rd4dev/gsoc-24-final-report-oppia-android-code-coverage-enforcement-47089b8eb3e1).
+* [Saptak Manna](pdfs/GSoC2024SaptakManna.pdf): Multiple Classrooms Support. Mentor: Adhiambo Peres. [Journal link](https://medium.com/@Mr_17). [Final report](https://medium.com/@Mr_17/my-google-summer-of-code24-journey-with-oppia-286ebcdef2fd).
+
+
 ## Getting started
 
 Welcome! If you're interested in applying to work with Oppia for GSoC, please follow these steps:
@@ -47,7 +60,7 @@ Welcome! If you're interested in applying to work with Oppia for GSoC, please fo
 
    - **Note!** You must be onboarded to the repository to which you will contribute during GSoC. For example, to work on an Oppia Web GSoC project, you need to be onboarded to the oppia/oppia repository, which means that your 2 pull requests need to be to oppia/oppia.
 
-   - **Pro-tip!** Quality is more important than quantity; we want to see examples of your best work. So, please make sure to read the [["getting started" guide|Contributing-code-to-Oppia]] and [[PR instructions|Make-a-pull-request]] carefully, follow the [tips for success](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#tips-for-success), manually test your code before submitting (to ensure it does what you want it to and doesn't break anything else), ensure that your code conforms to the [[style rules|Coding-style-guide]], and pay attention to small details. These are good skills to learn when developing software in general, and they will also help you build credibility as a responsible developer who can be trusted to be a good steward of the Oppia codebase.
+   - **Pro-tip!** Quality is more important than quantity; we want to see examples of your best work. So, please make sure to read the [["getting started" guide|Contributing-code-to-Oppia]] and [[PR instructions|Rules-for-making-PRs]] carefully, follow the [tips for success](https://github.com/oppia/oppia/wiki/Contributing-code-to-Oppia#tips-for-success), manually test your code before submitting (to ensure it does what you want it to and doesn't break anything else), ensure that your code conforms to the [[style rules|Coding-style-guide]], and pay attention to small details. These are good skills to learn when developing software in general, and they will also help you build credibility as a responsible developer who can be trusted to be a good steward of the Oppia codebase.
 
 5. Select one or more [GSoC project ideas](#oppias-project-ideas-list) that you're most interested in, and write your project proposal! You can get feedback from project mentors when you've completed a sufficient draft -- see the instructions in the [GSoC proposal template](#gsoc-proposal-template) section for details.
 
@@ -62,7 +75,7 @@ Welcome! If you're interested in applying to work with Oppia for GSoC, please fo
 
 **Q: What technical skills do I need to work on Oppia?**
 
-A: For Oppia Web, Angular 2+, Python 3.8, Google App Engine and Apache Beam are useful and recommended for most Oppia work; in addition, UI design skills are helpful for frontend user-facing work, and experience with Docker and GitHub Actions is useful for developer workflow projects. Also, it is important to be able to write tests for the code you submit (using Karma, Webdriverio and unittest). Please see the individual project ideas to determine which skills are recommended for the project in question. Note that, although GSoC is aimed at beginner contributors to open source and at students, "beginner to open source" is **not** the same as "beginner to coding" -- the projects assume that you have proficiency with coding. For Oppia Web, you might find this [[page of learning resources|Learning-Resources]] helpful, as well as other pages on our [wiki](https://github.com/oppia/oppia/wiki) that provide guidance on Apache Beam, testing frameworks, etc.
+A: For Oppia Web, Angular 2+, Python 3.9, Google App Engine and Apache Beam are useful and recommended for most Oppia work; in addition, UI design skills are helpful for frontend user-facing work, and experience with Docker and GitHub Actions is useful for developer workflow projects. Also, it is important to be able to write tests for the code you submit (using Karma, Webdriverio and unittest). Please see the individual project ideas to determine which skills are recommended for the project in question. Note that, although GSoC is aimed at beginner contributors to open source and at students, "beginner to open source" is **not** the same as "beginner to coding" -- the projects assume that you have proficiency with coding. For Oppia Web, you might find this [[page of learning resources|Learning-Resources]] helpful, as well as other pages on our [wiki](https://github.com/oppia/oppia/wiki) that provide guidance on Apache Beam, testing frameworks, etc.
 
 **Q: How can I increase my chances of getting selected?**
 

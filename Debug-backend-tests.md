@@ -70,28 +70,28 @@ Now that we've reached a file, the rest of the dotted name refers to Python attr
 
 When you know which test is causing you problems, running it in isolation can help you debug. For one thing, the tests will run much faster if you only run a few in isolation. Further, the console output from the test run will be much easier to understand.
 
-To run a test in isolation, you can use the `--test_target` option:
+To run a test in isolation, you can use the `--test_targets` option:
 
 Python:
 ```console
-python -m scripts.run_backend_tests --test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests.test_failed_api_call_logs_the_exception
+python -m scripts.run_backend_tests --test_targets jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests.test_failed_api_call_logs_the_exception
 ```
 
 Docker:
 ```console
-make run_tests.backend PYTHON_ARGS="--test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests.test_failed_api_call_logs_the_exception"
+make run_tests.backend PYTHON_ARGS="--test_targets jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests.test_failed_api_call_logs_the_exception"
 ```
 
 If you wanted to run all the tests defined by the `RefreshStateOfBeamJobRunModelTests`, you could do that too. Just shorten the dotted name to end at the class:
 
 Python:
 ```console
-python -m scripts.run_backend_tests --test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests
+python -m scripts.run_backend_tests --test_targets jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests
 ```
 
 Docker:
 ```console
-make run_tests.backend PYTHON_ARGS="--test_target jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests"
+make run_tests.backend PYTHON_ARGS="--test_targets jobs.jobs_manager_test.RefreshStateOfBeamJobRunModelTests"
 ```
 
 Note that if you want to run all the tests in a directory, you need to use `--test_path` instead like this:
@@ -133,8 +133,8 @@ Normally, we suppress any console output from passing tests, so even if you add 
 [datastore] Sep 19, 2021 3:30:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 [datastore] INFO: Detected HTTP/2 connection.
 19:30:23 FINISHED scripts.run_e2e_tests_test.RunE2ETestsTests.test_is_oppia_server_already_running_when_ports_closed: 22.1 secs
-Stopping Redis Server(name="redis-server", pid=37086)...
-Stopping Cloud Datastore Emulator(name="python2.7", pid=37069)...
+Stopping Redis Server(name="sh", pid=37086)...
+Stopping Cloud Datastore Emulator(name="sh", pid=37069)...
 
 +------------------+
 | SUMMARY OF TESTS |
@@ -163,8 +163,8 @@ Ran 1 test in 1.455s
 OK
 ----------------------------------------
 19:32:30 FINISHED scripts.run_e2e_tests_test.RunE2ETestsTests.test_is_oppia_server_already_running_when_ports_closed: 26.3 secs
-Stopping Redis Server(name="redis-server", pid=37294)...
-Stopping Cloud Datastore Emulator(name="python2.7", pid=37277)...
+Stopping Redis Server(name="sh", pid=37294)...
+Stopping Cloud Datastore Emulator(name="sh", pid=37277)...
 
 +------------------+
 | SUMMARY OF TESTS |
@@ -207,8 +207,8 @@ Traceback (most recent call last):
     result.testsRun, len(result.errors), len(result.failures)))
 Exception: Test suite failed: 1 tests run, 0 errors, 1 failures.
 
-Stopping Redis Server(name="redis-server", pid=38032)...
-Stopping Cloud Datastore Emulator(name="python2.7", pid=38015)...
+Stopping Redis Server(name="sh", pid=38032)...
+Stopping Cloud Datastore Emulator(name="sh", pid=38015)...
 
 +------------------+
 | SUMMARY OF TESTS |

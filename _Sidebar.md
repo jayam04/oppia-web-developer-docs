@@ -9,7 +9,7 @@
     * [[Voice artists | Instructions-for-voice-artists]]
     * [[Designers and artists|Contributing-to-Oppia's-design]]
   * [[How to report a bug|How-to-file-a-bug-report]]
-  * [[Google Summer of Code 2024|Google-Summer-of-Code-2024]]
+  * **[[Google Summer of Code 2025|Google-Summer-of-Code-2025]]**
 ---
 **Developing Oppia**
   * [[FAQs|Frequently-Asked-Questions]]
@@ -20,8 +20,6 @@
     * [[Installing Oppia|Installing-Oppia]]
       * [[Set up your development tools|Tips-for-common-IDEs]]
     * [[How to access Oppia webpages|How-to-access-Oppia-webpages]]
-      * [[Glossary of terms|Glossary-of-terms]]
-      * [User documentation](https://oppia.github.io/)
     * [[Populating data on local server|Populating-data-on-local-server]]
     * Team onboarding guides
       * [[LaCE Team|LaCE-onboarding-guide]]
@@ -33,16 +31,12 @@
     * [[Tips for finding the right code to change|Find-the-right-code-to-change]]
       * [[Tips for analyzing the codebase|Analyzing-the-codebase]]
     * [[Learning resources for developers|Learning-Resources]]
-    * [[Make a pull request|Make-a-pull-request]]
-      * [[Common pull request workflows|Common-pull-request-workflows]]
+    * [[Rules for making PRs|Rules-for-making-PRs]]
       * [[Coding style guide|Coding-style-guide]]
-      * [[Formatters|Formatters]]
-      * [[Bytes and string handling in Python 3|Bytes-and-string-handling-in-Python-3]]
   * [[Debugging|Debugging]]
-    * [[Debugging Docs|Debugging-Docs]]
-    * [[If your presubmit checks fail|If-your-presubmit-check-fails]]
+    * [[If your local presubmit checks fail|If-your-presubmit-check-fails]]
     * [[If CI checks fail on your PR|If-CI-checks-fail-on-your-PR]]
-      * [[Interpreting GitHub Actions Results|Interpreting-GitHubActions-Results]]
+      * [[Debugging Docs|Debugging-Docs]]
       * [[Debugging end-to-end tests|Debug-end-to-end-tests]]
       * [[Debugging backend tests|Debug-backend-tests]]
       * [[Debugging frontend tests|Debug-frontend-tests]]
@@ -52,6 +46,9 @@
     * [[Debug frontend code|Debug-frontend-code]]
     * [[Debugging Stories|Debugging-Stories]]
     * [[Testing email functionality|Testing-email-functionality]]
+    * Tutorials:
+      * 👣 [[Tutorial - Learn to figure out the reproduction steps for a server error|Tutorial-Learn-to-Figure-Out-the-Reproduction-Steps-for-a-Server-Error]]
+      * 👣 [[Tutorial - Learn to debug an issue using a debugging doc|Tutorial-Learn-to-Debug-an-Issue-Using-a-Debugging-Doc]]
   * Testing
       * [[Backend tests|Backend-tests]]
       * [[Frontend tests|Frontend-tests]]
@@ -63,7 +60,7 @@
     * **[[Guidelines for launching new features|Launching-new-features]]**
     * **[[Guidelines for making an urgent fix (hotfix)|Making-an-urgent-fix-(hotfix)]]**
     * **[[Testing jobs and other features on production|Testing-jobs-and-other-features-on-production]]**
-    * [[Guidelines for Developers with Write Access to oppia/oppia|Guidelines-for-Developers-with-Write-Access-to-oppia-oppia]]
+    * [[Guidelines for Developers with Write Access to the Oppia Repository|Guidelines-for-Developers-with-Write-Access-to-the-Oppia-repository]]
     * [[Release schedule and other information|Release-schedule-and-other-information]]
     * [[Revert and Regression Policy|Revert-and-Regression-Policy]]
     * [[Privacy aware programming|Privacy-aware-programming]]
@@ -79,20 +76,20 @@
       * [[How to write design docs|Writing-design-docs]]
   * Team-Specific Guides
     * LaCE/CD:
-      * 👣 [[Make a simple UI change|Making-a-simple-UI-change]]
+      * 👣 [[Tutorial - Learn how to make a simple UI change|Tutorial-Learn-How-to-Make-a-Simple-UI-Change]]
+      * 👣 [[Tutorial - Learn to implement a new full stack feature|Tutorial-Learn-to-implement-a-new-full-stack-feature]]
       * [[Testing for Accessibility|Testing-for-Accessibility]]
-      * [[Release accessibility checklist|Release-accessibility-checklist]]
       * [[Apache Beam Jobs|Apache-beam-jobs]]
-      * Translations:
-        * [[Adding new translations|Adding-new-translations-for-i18n]]
-        * [[How to develop for i18n|How-to-develop-for-i18n]]
-      * Server errors:
-        * [[Server errors and solutions|Server-errors-and-solutions]]
+        * 👣 [[Tutorial - Learn how to write and test a non-trivial Beam job|Tutorial-Learn-How-to-Write-and-Test-a-Non-Trivial-Beam-Job]]
+      * [[I18n/Translations Guide|Adding-new-translations-for-i18n]]
+      * [[Server errors and solutions|Server-errors-and-solutions]]
     * Developer Workflow:
       * [[Instructions for making PR passes|Instructions-for-making-PR-passes]]
       * [[Lint Checks|Lint-Checks]]
         * [[Custom Pylint checks|Custom-Pylint-checks]]
         * [[Custom ESLint checks|Custom-ESLint-checks]]
+      * Debug CI flakes
+        * 👣 [[Tutorial - Learn to fix a CI flake – E2E Tests - waitFor|Tutorial-Learn-How-to-Fix-a-CI-Flake-waitFor-Statements]]
       * [[Wiki infrastructure|Wiki]]
         * [[Wiki style guide|Wiki-style-guide]]
 
@@ -102,8 +99,7 @@
   * [[Oppiabot|Oppiabot]]
   * [[Git cheat sheet|Git-cheat-sheet]]
   * Frontend
-    * [[How to write frontend type definitions|Guide-on-defining-types]]
-      * [[TypeScript tests|TypeScript-tests]]
+    * [[How to define frontend types and test them|Guide-on-defining-types]]
     * [[Frontend file naming conventions|The-File-Naming-Convention-and-Directory-Structure]]
     * [[Angular Migration|Angular-Migration]]
     * [[UX guidelines|Oppia-UX-guidelines-&-rationales]]
@@ -139,8 +135,8 @@
   * [[Build process|Build-process]]
   * [[Best practices for leading Oppia teams|Leading-Oppia-Teams]]
   * Past Events
-    * Google Summer of Code: [[2023|Google-Summer-of-Code-2023]], [[2022|Google-Summer-of-Code-2022]], [[2021|Google-Summer-of-Code-2021]], [[2020|Google-Summer-of-Code-2020]], [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
-    * Hacktoberfest: [[2023|Hacktoberfest-2023]], [[2022|Hacktoberfest-2022]], [[2021|Hacktoberfest-2021]], [[2020|Hacktoberfest-2020]], [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
+    * Google Summer of Code: [[2024|Google-Summer-of-Code-2024]], [[2023|Google-Summer-of-Code-2023]], [[2022|Google-Summer-of-Code-2022]], [[2021|Google-Summer-of-Code-2021]], [[2020|Google-Summer-of-Code-2020]], [[2019|Google-Summer-of-Code-2019]], [[2018|Google-Summer-of-Code-2018]], [[2017|Google-Summer-of-Code-2017]], [[2016|Google-Summer-of-Code-2016]]
+    * Hacktoberfest: [[2024|Hacktoberfest-2024]], [[2023|Hacktoberfest-2023]], [[2022|Hacktoberfest-2022]], [[2021|Hacktoberfest-2021]], [[2020|Hacktoberfest-2020]], [[2019|Hacktoberfest-2019]], [[2018|Hacktoberfest-2018]], [[2017|Hacktoberfest-2017]], [[2016|Hacktoberfest-2016]]
     * GHC Open Source Day: [[2019|GHC-Open-Source-Day-2019]], [[2018|GHC-Open-Source-Day]]
     * Season of Docs: [[2024|Season-of-Docs-2024]], [[2021|Season-of-Docs-2021]], [[2019|Season-of-Docs-2019]]
     * DSC-SLoP (Semester Long Project): [[2022|SLoP-2022]], [[2020|SLoP-2020]]

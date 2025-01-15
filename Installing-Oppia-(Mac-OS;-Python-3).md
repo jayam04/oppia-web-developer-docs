@@ -68,7 +68,7 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
 2. Install [direnv](https://direnv.net/).
 
-   After finishing with the official installation instructions, you should also create a `~/.direnvrc` file with the following content:
+   After finishing with the official installation instructions, you should also create a `~/.config/direnv/direnvrc` file with the following content:
 
    ```bash
    use_python() {
@@ -129,6 +129,14 @@ Oppia relies on a number of programs and third-party libraries. Many of these li
 
    The `git remote -v` command at the end shows all your current remotes.
 
+   For developers who are using SSH to push to their git repository, please change the SSH config at `~/.ssh/config` to ensure that the git pre-push hook doesn't time out at 5 minutes. In order to do this, add the following lines to `~/.ssh/config` ([Reference](https://stackoverflow.com/a/65818657)):
+
+     ```console
+     Host*
+       ServerAliveInterval 60
+       ServerAliveCountMax 30
+     ```
+
    Now you can pull in changes from `oppia/oppia` by running `git pull upstream {{branch}}` and push your changes to your fork by running `git push origin {{branch}}`.
 
    We have established a clean setup now. We can make any changes we like and push it to this forked repository, and then make a pull request for getting the changes merged into the original repository. Here's a nice picture explaining the process ([image source](https://github.com/Rafase282/My-FreeCodeCamp-Code/wiki/Lesson-Save-your-Code-Revisions-Forever-with-Git)).
@@ -169,56 +177,45 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
 
 2. Reload your shell or open a new terminal window to load your updated `~/.bash_profile` or `~/.zshrc`.
 
-3. Install Python 3.8.15:
+3. Install Python 3.9.20:
 
    ```console
-   $ pyenv install 3.8.15
+   $ pyenv install 3.9.20
    Installing openssl-1.1.1k..
-   Installed openssl-1.1.1k to /Users/user/.pyenv/versions/3.8.15
+   Installed openssl-1.1.1k to /Users/user/.pyenv/versions/3.9.20
 
    Installing readline-8.1...
-   Installed readline-8.1 to /Users/user/.pyenv/versions/3.8.15
+   Installed readline-8.1 to /Users/user/.pyenv/versions/3.9.20
 
-   Downloading Python-3.8.15.tar.xz...
-   -> https://www.python.org/ftp/python/3.8.15/Python-3.8.15.tar.xz
-   Installing Python-3.8.15...
+   Downloading Python-3.9.20.tar.xz...
+   -> https://www.python.org/ftp/python/3.9.20/Python-3.9.20.tar.xz
+   Installing Python-3.9.20...
    patching file Misc/NEWS.d/next/Build/2021-10-11-16-27–38.bpo-45405.iSfdw5.rst
    patching file configure
    patching file configure.ac
    python-build: use zlib from xcode sdk
-   Installed Python-3.8.15 to /Users/user/.pyenv/versions/3.8.15
+   Installed Python-3.9.20 to /Users/user/.pyenv/versions/3.9.20
    ```
 
-4. Install Python 2.7.18:
-
+4. Make Python 3 available globally on your system:
 
    ```console
-   $ pyenv install 2.7.18
-   ...
-   Installed Python-2.7.18 to ~/.pyenv/versions/2.7.18
+   pyenv global 3.9.20
    ```
 
-   This is needed because App Engine's `dev_appserver.py` [requires Python 2.7 to be installed](https://cloud.google.com/appengine/docs/standard/python3/tools/local-devserver-command).
-
-5. Make both Python 3 and Python 2 available globally on your system:
-
-   ```console
-   pyenv global 3.8.15 2.7.18
-   ```
-
-   Note that you can use a different version of Python 3 if you prefer--we'll specify Python 3.8.15 as our version for Oppia development later.
+   Note that you can use a different version of Python 3 if you prefer--we'll specify Python 3.9.20 as our version for Oppia development later.
 
 5. Create a virtual environment for oppia by making a file `.envrc` in the `opensource/` directory with the following contents:
 
    ```text
-   use python 3.8.15
+   use python 3.9.20
    ```
 
    Then run `direnv allow` in the `opensource/` directory to allow `direnv` to run there. Whenever you are within the `opensource/` directory (or any of its subdirectories, or any of their subdirectories, etc.) the virtual environment will be active. You can confirm this by running:
 
    ```console
    $ which python
-   .../opensource/.direnv/python-3.8.15/bin/python
+   .../opensource/.direnv/python-3.9.20/bin/python
    ```
 
 ## Running Oppia on a development server
@@ -289,20 +286,20 @@ For your vitual environment, we recommend you use [pyenv](https://github.com/pye
    i  hub: Stopping emulator hub
    i  logging: Stopping Logging Emulator
    Stopping Web Browser(name="open", pid=29306)...
-   Stopping GAE Development Server(name="python2.7", pid=29289)...
+   Stopping GAE Development Server(name="sh", pid=29289)...
    Stopping Webpack Compiler(name="node", pid=29234)...
    Stopping Firebase Emulator(name="node", pid=29216)...
    Stopping ElasticSearch Server(name="java", pid=29148)...
-   Stopping Redis Server(name="redis-server", pid=29147)...
+   Stopping Redis Server(name="sh", pid=29147)...
 
 
    Done! Thank you for waiting.
 
 
    Traceback (most recent call last):
-     File "/Users/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 174, in _run_module_as_main
+     File "/Users/user/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 174, in _run_module_as_main
        "__main__", fname, loader, pkg_name)
-     File "/Users/user/.pyenv/versions/3.8.15/lib/python3.8/runpy.py", line 72, in _run_code
+     File "/Users/user/.pyenv/versions/3.9.20/lib/python3.8/runpy.py", line 72, in _run_code
        exec code in run_globals
      File "/opensource/oppia/scripts/start.py", line 205, in <module>
        main()
